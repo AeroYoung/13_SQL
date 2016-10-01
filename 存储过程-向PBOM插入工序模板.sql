@@ -3,6 +3,9 @@
 -- Create date: 2016-09-30
 -- Description:	向PBOM插入工序模板
 -- =============================================
+if OBJECT_ID(N'dbo.AddProcessTemp2PBOM', N'P') is NOT null 
+DROP procedure  AddProcessTemp2PBOM 
+GO
 CREATE PROCEDURE AddProcessTemp2PBOM 
 	@systemCode varchar(MAX) = ''
 AS

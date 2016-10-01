@@ -1,12 +1,11 @@
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
 -- =============================================
 -- Author:		杨尧
 -- Create date: 2016-09-30
 -- Description:	根据系统号删除一个订单的所有信息
 -- =============================================
+if OBJECT_ID(N'dbo.DeleteOrderBySystemCode', N'P') is NOT null 
+DROP procedure  DeleteOrderBySystemCode 
+GO
 CREATE PROCEDURE DeleteOrderBySystemCode 
 	@systemCODE VARCHAR(MAX) = ''
 AS
