@@ -11,6 +11,7 @@ CREATE PROCEDURE JointQueryAvailMachine
 AS
 BEGIN
 	SELECT * from MES_Machine_table,MES_BasicProcess_table,Map_ProcessMachine_table where
-	MES_Machine_table.machineID=machine and processName=process and process=@processName
+	MES_Machine_table.machineID=machine and processName=process and process=@processName 
+	order by machine
 END
 GO
