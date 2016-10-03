@@ -1,7 +1,7 @@
 -- =============================================
 -- Author:		杨尧
 -- Create date: 2016-09-30
--- Description:	向PBOM插入工序模板
+-- Description:	向PBOM插入工序模板(除了分流板)
 -- =============================================
 if OBJECT_ID(N'dbo.AddProcessTemp2PBOM', N'P') is NOT null 
 DROP procedure  AddProcessTemp2PBOM 
