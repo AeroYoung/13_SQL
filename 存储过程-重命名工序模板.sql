@@ -11,7 +11,7 @@ CREATE PROCEDURE RenameProcessTemp
 	@oldTempName varchar(MAX) = ''
 AS
 BEGIN
-	if(@newTempName<>@oldTempName)
+	if(@newTempName=@oldTempName)
 	begin
 		return
 	end

@@ -11,6 +11,11 @@ CREATE PROCEDURE ProcessTempSaveAsNewTemp
 	@oldTempName varchar(MAX) = ''	
 AS
 BEGIN
+	if exists(select tempName from MES_ProcessTempList_table where tempName=@newTempName)	
+	begin
+		return 
+	end
+	
     insert into MES_ProcessTempList_table(tempName,tempCode,[readOnly]) 
     select @newTempName as tempName,tempCode,[readOnly] from MES_ProcessTempList_table where tempName=@oldTempName
 
