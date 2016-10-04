@@ -13,10 +13,14 @@ BEGIN
   INSERT INTO MES_ProcessBOM_table
   (BOM_ID,processName,processID,processContent,preTime,singleTime,outSourcing,availMachine)    
   select ID,processName,processID,processContent,preTime,singleTime,outSourcing,machine
-  from BOM_EXCEL_table,MES_ProcessTempContent_table,Map_ProcessTempStandard_table
-  where BOM_EXCEL_Table.code=Map_ProcessTempStandard_table.code 
+  from BOM_EXCEL_table,MES_ProcessTempContent_table,Map_ProcessTempStandard_table,MES_ProcessTempList_table
+  where 
+  BOM_EXCEL_Table.code=Map_ProcessTempStandard_table.code 
+  and MES_ProcessTempList_table.tempName=Map_ProcessTempStandard_table.tempName 
   AND MES_ProcessTempContent_table.tempName=Map_ProcessTempStandard_table.tempName
   AND (manufacture_type='二次加工' or manufacture_type='非标')
   AND system_code=@systemCode
+  and MES_ProcessTempList_table.[readOnly]<>1
+  
 END
 GO
