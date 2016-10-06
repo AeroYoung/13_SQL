@@ -1,0 +1,1 @@
+SELECT   @@VERSION as 版本情况,SERVERPROPERTY('ProductVersion') as 产品版本编号, SERVERPROPERTY('ProductLevel') as 当前补丁版本,SERVERPROPERTY('edition') as 软件版本
