@@ -10,9 +10,9 @@ CREATE PROCEDURE DeleteOrderBySystemCode
 	@systemCODE VARCHAR(MAX) = ''
 AS
 BEGIN
-	delete MES_ProcessBOM_table where BOM_ID IN (select ID from BOM_EXCEL_Table WHERE system_code=@systemCODE)
 	delete BOM_EXCEL_Table WHERE system_code=@systemCODE
 	delete OA_Order_table WHERE system_code=@systemCODE
 	delete OA_Status_table WHERE order_id=@systemCODE 
+	delete MES_ProcessBOM_table where BOM_ID not in (select ID from BOM_EXCEL_table)
 END
 GO
