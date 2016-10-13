@@ -12,14 +12,13 @@ CREATE PROCEDURE JointQueryEBOM_PBOM
 	AS
 BEGIN
 	select  system_code,ID,name,code,num,specification,manufacture_type,remark
-	,group_code,COUNT(*) AS processNum,materialPriority from MES_ProcessBOM_view
+	,group_code,COUNT(*) AS processNum from MES_ProcessBOM_view
 	where system_code=@systemCode 
-	group by system_code,ID,name,code,num,specification,manufacture_type,remark,group_code,materialPriority
+	group by system_code,ID,name,code,num,specification,manufacture_type,remark,group_code
 	
 	UNION ALL 
 
 	select system_code,ID,name,code,num,specification,manufacture_type,remark,group_code,0 AS processNum
-	,5 as materialPriority
 	from BOM_EXCEL_table WHERE system_code=@systemCode AND
 	ID not in (select BOM_ID from MES_ProcessBom_table)
 
