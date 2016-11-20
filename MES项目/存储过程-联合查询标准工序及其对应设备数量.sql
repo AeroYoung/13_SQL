@@ -3,10 +3,10 @@
 -- Create date: 2016-10-03
 -- Description:	查询标准工序及其对应的设备的数量
 -- =============================================
-if OBJECT_ID(N'dbo.JointQeryBasicProcess', N'P') is NOT null 
-DROP procedure  JointQeryBasicProcess 
+if OBJECT_ID(N'dbo.JointQueryBasicProcess', N'P') is NOT null 
+DROP procedure  JointQueryBasicProcess 
 GO
-CREATE PROCEDURE JointQeryBasicProcess 
+CREATE PROCEDURE JointQueryBasicProcess 
 AS
 BEGIN
 	SELECT processName,outSourcing,COUNT(*) AS machineNum
