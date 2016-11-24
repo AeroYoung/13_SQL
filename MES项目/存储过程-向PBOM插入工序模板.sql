@@ -10,6 +10,10 @@ CREATE PROCEDURE AddProcessTemp2PBOM
 	@systemCode varchar(MAX) = ''
 AS
 BEGIN
+
+  delete MES_ProcessBOM_table WHERE BOM_ID in (select ID from BOM_EXCEL_Table WHERE system_code=@systemCode
+	 and code<>'40301')
+
   INSERT INTO MES_ProcessBOM_table
   (BOM_ID,processName,processID,processContent,preTime,singleTime,outSourcing,availMachine)    
   select ID,processName,processID,processContent,preTime,singleTime,outSourcing,machine
